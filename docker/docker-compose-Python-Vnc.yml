@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  pythonvncubuntu:
+    image: pythonvnc 
+    environment:
+      - LANG=ja_JP.UTF-8
+      - LC_CTYPE=ja_JP.utf8
+    restart: always
+    ports:
+      - "6901:6901"
+      - "18080:8080"
+    volumes:
+      - "../:/home/headless/data"

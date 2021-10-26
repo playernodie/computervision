@@ -1,0 +1,7 @@
+ipywidgets
+numpy
+opencv-python-headless
+matplotlib
+requests
+ipywidgets
+mpl_interactions

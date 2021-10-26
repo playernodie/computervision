@@ -1,0 +1,36 @@
+
+# when training darknet. it neccessary to install opencv from source or apt 
+apt install libopencv-dev python3-opencv
+
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
+add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+apt-get update
+apt-get -y install cuda
+
+apt-get install pciutils
+lspci | grep -i nvidia
+uname -m && cat /etc/*release
+
+apt install git 
+apt install python3
+apt install python3-pip
+git clone https://github.com/playernodie/computer-vision.git
+cd computer-vision/docker/
+pip3 install -r requirements.txt
+
+file -s /dev/nvme1n1
+mkfs -t xfs /dev/nvme1n1
+mkdir /data
+mount /dev/nvme1n1 /data
+
+jupyter serverextension enable --py jupyter_http_over_ws
+nohup jupyter notebook \
+--ip 0.0.0.0 \
+--no-browser \
+--allow-root \
+--NotebookApp.allow_origin='https://colab.research.google.com' \
+--port=8888 \
+--NotebookApp.port_retries=0 \
+&

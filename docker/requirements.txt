@@ -1,0 +1,14 @@
+numpy
+#torch
+#torchvision
+opencv-python-headless
+lmdb
+fire
+nltk 
+natsort
+matplotlib
+requests
+#boto3
+#jupyterlab
+#jupyter_http_over_ws
+ipywidgets

@@ -1,0 +1,11 @@
+# docker build -f Dockerfile-Python-Vnc -t pythonvnc .
+FROM accetto/ubuntu-vnc-xfce
+RUN apt update
+RUN apt install -y firefox libopencv-dev python3-opencv python3-pip git python3-tk python3-dev scrot gedit 
+RUN apt clean --dry-run
+
+RUN pip3 install --upgrade pip
+RUN pip3 install numpy
+RUN pip3 install opencv-python
+RUN pip3 install matplotlib
+RUN pip3 install pyautogui
